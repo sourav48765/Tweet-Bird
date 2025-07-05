@@ -19,11 +19,13 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.urls import views as auth_views
+import os
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('tweet/', include('tweet.urls')),
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('',include('tweet.urls')),
+     path('tweet/',include('tweet.urls')),
+    path('accounts/',include('django.contrib.auth.urls')),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static('/tweet/static/', document_root=os.path.join(settings.BASE_DIR, 'tweet/static/'))
