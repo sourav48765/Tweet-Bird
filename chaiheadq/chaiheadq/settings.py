@@ -14,7 +14,11 @@ DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 ALLOWED_HOSTS = ['.onrender.com', '127.0.0.1', 'localhost']
 
 # ✅ CSRF origin protection (Render domain here)
-CSRF_TRUSTED_ORIGINS = ['https://tweet-bird-puxs.onrender.com']
+CSRF_TRUSTED_ORIGINS = [
+    'https://tweet-bird.onrender.com',
+]
+
+CSRF_COOKIE_SECURE = True  
 
 # Application definition
 INSTALLED_APPS = [
